@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Freelancer - Start Bootstrap Theme</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Theme CSS -->
+    <link href="css/freelancer.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body id="page-top" class="index">
+<div id="skipnav"><a href="#maincontent">Skip to main content</a></div>
+    <!-- Navigation -->
+    <div class="brand">DeliBe</div>
+    <div style="background-color:black;opacity" id="header">
+
+    </div>
+    <!-- Header -->
+    <section id="banner" style="padding:0px;margin:0px;background-color:transparent">
+    </section>
+
+
+
+    <section id="focus-on">
+    </section>
+
+    <section  id="feed">
+    </section>
+
+
+    <section id="shoplist">
+    </section>
+
+    <!-- About Section -->
+    <section class="success" id="gallery">
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center">
+        <div class="footer-above">
+            <div class="container">
+                <div style="float:left;width:100%;">
+                <div class="title"><div class="brandname"> DeliBe </div></div>
+                <div class="content">
+                <div class="footer-menu">
+                  <span>인재채용</span>
+                  <span>입점/제휴문의</span>
+                  <span>공지사항</span>
+                  <span>고객소리</span>
+                  <span>이용약관</span>
+                  <span>개인정보처리방침</span>
+                  <span>신뢰관리센터</span>
+                </div>
+                <div class="footer-content">
+                  <div class="info1">
+                    <div class="tel">02-561-5709</div>
+                    <div class="time">Weekdays 9:30 ~ 18:00</div>
+                    <div class="week">Sat,Sun,Holidays OFF</div>
+                  </div>
+                  <div class="info2">
+                    <div>델리비 대표이사:이민호 | 서울시 강남구 역삼동 628-3번지 멜로즈프라자 3층</div>
+                    <div>Fax : 02-561-6709 | 사업자 등록번호 : 123-45-678910 | 통신판매업신고 : 2017 - 서울강남 - 4563</div>
+                  </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+    <div class="scroll-top page-scroll hidden-sm hidden-xs hidden-lg hidden-md">
+        <a class="btn btn-primary" href="#page-top">
+            <i class="fa fa-chevron-up"></i>
+        </a>
+    </div>
+
+    <!-- jQuery -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="js/jqBootstrapValidation.js"></script>
+    <script src="js/contact_me.js"></script>
+
+    <!-- Theme JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+    <script src="js/delibe.js"></script>
+
+
+
+    <!--
+      * @projectDescription Banner 슬라이드 페이지 템플릿
+      *
+      * @author Joe Smith cocacolar@nate.com
+      * @version 1.0
+      * @homepage http://0sun.net
+      * @
+    --->
+
+    <script type="text/template" id="bannerTemplate">
+      <% var blist = delibe.state.Banner.getList();%>
+      <div class="carousel"
+        data-flickity='{ "imagesLoaded": true, "percentPosition": false,"autoPlay":true }'>
+        <%for(var i=0; i<blist.length; i++) { %>
+          <div class="carousel-cut"><a href="<%=blist[i].linkURL%>"><img class="carousel-image" src="<%=blist[i].imageURL%>" alt="<%=blist[i].Alt%>" /></a></div>
+        <%} %>
+      </div>
+    </script>
+
+
+    <!--
+      * @projectDescription FocusOn 페이지 템플릿
+      *
+      * @author Joe Smith cocacolar@nate.com
+      * @version 1.0
+      * @homepage http://0sun.net
+      * @
+    --->
+    <script type="text/template" id="focusonTemplate">
+      <div class="container">
+          <!-- 제목 부분 입니다.. -->
+          <div class="title title-bar row">
+              <div class="col-lg-12 text-center">
+                  <div class="title-background"># F o c u s&nbsp;&nbsp;&nbsp;o n</div>
+              </div>
+          </div>
+          <div class="row">
+            <!-- 리스트를 추가합니다. -->
+            <div class="col-md-12">
+                <% var flist = delibe.state.FocusOn.getList();%>
+                <%for(var i=0; i<flist.length; i++) { %>
+                  <div class="col-md-3">
+                    <img class="img-responsive" src=<%=flist[i].imageURL%>>
+                      <div class="focus-on">
+                          <p class="name"><%=flist[i].name%></p>
+                          <span class="skills"><%=flist[i].blogURL%></span>
+                      </div>
+                    </div>
+                <%} %>
+            </div>
+          </div>
+      </div>
+    </script>
+
+
+    <!--
+      * @projectDescription Feed 페이지 템플릿
+      *
+      * @author Joe Smith cocacolar@nate.com
+      * @version 1.0
+      * @homepage http://0sun.net
+      * @
+    --->
+    <script type="text/template" id="feedTemplate">
+      <div class="container">
+            <div class="title row">
+                <div class="col-lg-12 text-center">
+                    <div># F a s h i o n&nbsp;&nbsp;&nbsp;&amp;&nbsp;&nbsp;&nbsp;B e a u t y&nbsp;&nbsp;&nbsp;F e e d</div>
+                </div>
+            </div>
+
+            <div class='fb-grid row'>
+                <div class='col-md-12'>
+                  <div class="carousel slide media-carousel" id="media">
+                    <div class="carousel-inner">
+                      <% var feedlist = delibe.state.Feed.getList();%>
+                        <% for(var i=0;i<feedlist.length;i++){ %>
+                          <% if(i==0){ %>
+                          <div class="item active">
+                          <% }else{ %>
+                          <div class="item">
+                          <%}%>
+                            <div class="row">
+                              <% for(var j=0;j<3;j++){ %>
+                              <div class="fb-left col-md-4">
+                                <% if(feedlist[i].imageURL[j] != undefined){ %>
+                                <div class="picture">
+                                    <img style="" class="img-responsive" src="<%=feedlist[i].imageURL[j]%>" alt="">
+                                </div>
+                                <div class="description">
+                                    <p class="title"><%=feedlist[i].title[j]%></p>
+                                    <span class="content"><%=feedlist[i].contents[j]%></span>
+                                </div>
+                                <% } %>
+                              </div>
+                              <% } %>
+                            </div>
+
+                          </div>
+                      <% } %>
+
+                    <a data-slide="prev" href="#media" class="left carousel-control"></a>
+                    <a data-slide="next" href="#media" class="right carousel-control"></a>
+                  </div>
+                </div>
+              </div>
+
+        </div>
+      </div>
+    </script>
+
+
+
+
+
+
+    <script type="text/template" id="galleryTemplate">
+    <% var gallerylist = delibe.state.Gallery.getList();%>
+    <div class="container">
+      <div class="title row">
+          <div class="col-md-12 text-center">
+              <div># B e s t&nbsp;&nbsp;&nbsp;D e l i b e S t y l e</div>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-md-12 text-center">
+            <% for(var i=0;i<gallerylist.length;i++){%>
+              <div class="col-md-2"><img src="<%=gallerylist[i].imageURL%>"></div>
+            <%}%>
+          </div>
+      </div>
+    </div>
+  </script>
+
+
+  <script type="text/template" id="shoplistTemplate">
+    <div class="container">
+
+
+
+        <div class="title row">
+            <div class="col-lg-12 text-center">
+              <span>Model</span>
+              <span>Style</span>
+              <span>Item</span>
+            </div>
+        </div>
+
+
+
+
+
+
+        <div class="shoplist row">
+          <div class="col-md-12">
+            <div class="col-md-3">
+                  <div class="picture">
+                      <img style="" class="img-responsive" src="img/four/image1.png" alt="">
+                  </div>
+                  <div class="description">
+                      <div>
+                        <img class="face" src="img/four/face1.png"/>
+                        <span class="uid" class="title">ageer456</span>
+                        <img class="heart" src="img/four/heart1.png"/>
+                      </div>
+                      <div>
+                        <span class="content">짧았던 순간 dress</span>
+                        <p class="price">19,800원</p>
+                      </div>
+                  </div>
+            </div>
+              <div class="col-md-3">
+                    <div class="picture">
+                        <img style="" class="img-responsive" src="img/four/image1.png" alt="">
+                    </div>
+                    <div class="description">
+                        <div>
+                          <img class="face" src="img/four/face1.png"/>
+                          <span class="uid" class="title">ageer456</span>
+                          <img class="heart" src="img/four/heart1.png"/>
+                        </div>
+                        <div>
+                          <span class="content">짧았던 순간 dress</span>
+                          <p class="price">19,800원</p>
+                        </div>
+                    </div>
+              </div>
+                <div class="col-md-3">
+                      <div class="picture">
+                          <img style="" class="img-responsive" src="img/four/image1.png" alt="">
+                      </div>
+                      <div class="description">
+                          <div>
+                            <img class="face" src="img/four/face1.png"/>
+                            <span class="uid" class="title">ageer456</span>
+                            <img class="heart" src="img/four/heart1.png"/>
+                          </div>
+                          <div>
+                            <span class="content">짧았던 순간 dress</span>
+                            <p class="price">19,800원</p>
+                          </div>
+                      </div>
+                </div>
+                  <div class="col-md-3">
+                        <div class="picture">
+                            <img style="" class="img-responsive" src="img/four/image1.png" alt="">
+                        </div>
+                        <div class="description">
+                            <div>
+                              <img class="face" src="img/four/face1.png"/>
+                              <span class="uid" class="title">ageer456</span>
+                              <img class="heart" src="img/four/heart1.png"/>
+                            </div>
+                            <div>
+                              <span class="content">짧았던 순간 dress</span>
+                              <p class="price">19,800원</p>
+                            </div>
+                        </div>
+                  </div>
+
+          </div>
+        </div>
+
+        <div class="shoplist row">
+          <div class="col-md-12">
+            <div class="col-md-3">
+                  <div class="picture">
+                      <img style="" class="img-responsive" src="img/four/image1.png" alt="">
+                  </div>
+                  <div class="description">
+                      <div>
+                        <img class="face" src="img/four/face1.png"/>
+                        <span class="uid" class="title">ageer456</span>
+                        <img class="heart" src="img/four/heart1.png"/>
+                      </div>
+                      <div>
+                        <span class="content">짧았던 순간 dress</span>
+                        <p class="price">19,800원</p>
+                      </div>
+                  </div>
+            </div>
+              <div class="col-md-3">
+                    <div class="picture">
+                        <img style="" class="img-responsive" src="img/four/image1.png" alt="">
+                    </div>
+                    <div class="description">
+                        <div>
+                          <img class="face" src="img/four/face1.png"/>
+                          <span class="uid" class="title">ageer456</span>
+                          <img class="heart" src="img/four/heart1.png"/>
+                        </div>
+                        <div>
+                          <span class="content">짧았던 순간 dress</span>
+                          <p class="price">19,800원</p>
+                        </div>
+                    </div>
+              </div>
+                <div class="col-md-3">
+                      <div class="picture">
+                          <img style="" class="img-responsive" src="img/four/image1.png" alt="">
+                      </div>
+                      <div class="description">
+                          <div>
+                            <img class="face" src="img/four/face1.png"/>
+                            <span class="uid" class="title">ageer456</span>
+                            <img class="heart" src="img/four/heart1.png"/>
+                          </div>
+                          <div>
+                            <span class="content">짧았던 순간 dress</span>
+                            <p class="price">19,800원</p>
+                          </div>
+                      </div>
+                </div>
+                  <div class="col-md-3">
+                        <div class="picture">
+                            <img style="" class="img-responsive" src="img/four/image1.png" alt="">
+                        </div>
+                        <div class="description">
+                            <div>
+                              <img class="face" src="img/four/face1.png"/>
+                              <span class="uid" class="title">ageer456</span>
+                              <img class="heart" src="img/four/heart1.png"/>
+                            </div>
+                            <div>
+                              <span class="content">짧았던 순간 dress</span>
+                              <p class="price">19,800원</p>
+                            </div>
+                        </div>
+                  </div>
+
+          </div>
+        </div>
+
+        <div class="shoplist row">
+          <div class="col-md-12">
+            <div class="col-md-3">
+                  <div class="picture">
+                      <img style="" class="img-responsive" src="img/four/image1.png" alt="">
+                  </div>
+                  <div class="description">
+                      <div>
+                        <img class="face" src="img/four/face1.png"/>
+                        <span class="uid" class="title">ageer456</span>
+                        <img class="heart" src="img/four/heart1.png"/>
+                      </div>
+                      <div>
+                        <span class="content">짧았던 순간 dress</span>
+                        <p class="price">19,800원</p>
+                      </div>
+                  </div>
+            </div>
+              <div class="col-md-3">
+                    <div class="picture">
+                        <img style="" class="img-responsive" src="img/four/image1.png" alt="">
+                    </div>
+                    <div class="description">
+                        <div>
+                          <img class="face" src="img/four/face1.png"/>
+                          <span class="uid" class="title">ageer456</span>
+                          <img class="heart" src="img/four/heart1.png"/>
+                        </div>
+                        <div>
+                          <span class="content">짧았던 순간 dress</span>
+                          <p class="price">19,800원</p>
+                        </div>
+                    </div>
+              </div>
+                <div class="col-md-3">
+                      <div class="picture">
+                          <img style="" class="img-responsive" src="img/four/image1.png" alt="">
+                      </div>
+                      <div class="description">
+                          <div>
+                            <img class="face" src="img/four/face1.png"/>
+                            <span class="uid" class="title">ageer456</span>
+                            <img class="heart" src="img/four/heart1.png"/>
+                          </div>
+                          <div>
+                            <span class="content">짧았던 순간 dress</span>
+                            <p class="price">19,800원</p>
+                          </div>
+                      </div>
+                </div>
+                  <div class="col-md-3">
+                        <div class="picture">
+                            <img style="" class="img-responsive" src="img/four/image1.png" alt="">
+                        </div>
+                        <div class="description">
+                            <div>
+                              <img class="face" src="img/four/face1.png"/>
+                              <span class="uid" class="title">ageer456</span>
+                              <img class="heart" src="img/four/heart1.png"/>
+                            </div>
+                            <div>
+                              <span class="content">짧았던 순간 dress</span>
+                              <p class="price">19,800원</p>
+                            </div>
+                        </div>
+                  </div>
+
+          </div>
+        </div>
+        <div class="row">
+          <div>
+            <img src="./admin/middle/middle.png"/>
+          </div>
+        </div>
+  </script>
+
+  <script  type="text/template" id="menu">
+  <nav style="background-color:white;" class="navbar navbar-default" role="navigation">
+      <div class="container">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+              </button>
+              <!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
+              <a class="navbar-brand" href="index.html">DeliBe</a>
+          </div>
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse col-md-12" id="bs-example-navbar-collapse-1" style="width:100%;text-align:left;">
+              <ul class="nav navbar-nav">
+                  <li class="navbar-menu">
+                      <a href="#">SPECIAL</a>
+                  </li>
+
+                  <li class="navbar-menu">
+                      <a href="#">SELLER</a>
+                  </li>
+
+                  <li class="navbar-menu">
+                      <a href="#">ITEM</a>
+                  </li>
+
+                  <li class="navbar-menu" style="width:29%">
+                      <a href="#">COMMUNITY</a>
+                  </li>
+              </ul>
+          </div>
+          <!-- /.navbar-collapse -->
+      </div>
+      <!-- /.container -->
+  </nav>
+
+  {
+    mainmenu:{
+      {
+        name:"SPECIAL",
+        link:"#"
+      },
+      {
+        name:"SELLER",
+        link:"#"
+      },
+      {
+        name:"ITEM",
+        link:"#"
+      },
+      {
+        name:"COMMUNITY",
+        link:"#"
+      }
+
+    },
+    submenu:{
+    }
+  }
+  <div class="submenu" role="navigation">
+      <div class="container">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+              </button>
+              <!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
+              <a class="navbar-brand" href="index.html">DeliBe</a>
+          </div>
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse col-md-12" id="bs-example-navbar-collapse-1">
+              <ul class="submenu-ul nav navbar-nav">
+                  <li class="navbar-menu">
+                      <a href="index.html">BEST</a>
+                      <a href="index.html">NEW</a>
+                      <a href="index.html">SPECIAL</a>
+                  </li>
+
+                  <li class="navbar-menu" >
+                      <a href="index.html">장수미</a>
+                      <a href="index.html">장수미</a>
+                      <a href="index.html">장수미</a>
+                  </li>
+
+                  <li class="navbar-menu" >
+                      <a href="index.html">TOP</a>
+                      <a href="index.html">BOTTOM</a>
+                      <a href="index.html">OUTER WEAR</a>
+                      <a href="index.html">DRESS</a>
+                      <a href="index.html">INNERWEAR</a>
+                      <a href="index.html">BAG/SHOES</a>
+                      <a href="index.html">ACC</a>
+                      <a href="index.html">ETC</a>
+                      <a href="index.html">ITEM</a>
+
+                  </li>
+
+                  <li class="navbar-menu">
+                    <a href="index.html">고객센터</a>
+                    <a href="index.html">공지사항</a>
+                    <a href="index.html">이벤트</a>
+                    <a href="index.html">실시간포토리뷰</a>
+                    <a href="index.html">출석체크</a>
+                    <a href="index.html">딜리버APP</a>
+                  </li>
+              </ul>
+          </div>
+          <!-- /.navbar-collapse -->
+      </div>
+      <!-- /.container -->
+  </div>
+  </script>
+
+    <script src="js/freelancer.min.js"></script>
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+
+</body>
+
+</html>
