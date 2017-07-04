@@ -1,7 +1,6 @@
 
 
 // Freelancer Theme JavaScript
-
 (function($) {
     "use strict"; // Start of use strict
 
@@ -25,25 +24,7 @@
             $('.navbar-toggle:visible').click();
     });
 
-    $('nav li').click(function(){
-      $('nav li').each(function(){
-        $(this).children().css("background-color","");
-      })
-      $('.submenu').show();
-    })
-    $('.brand').mouseover(function(){
-      $('nav li').each(function(){
-        $(this).children().css("background-color","white");
-      })
-      $('.submenu').hide();
 
-    })
-    $('section').mouseover(function(){
-      $('nav li').each(function(){
-        $(this).children().css("background-color","white");
-      })
-      $('.submenu').hide();
-    })
 
     // Offset for Main Navigation
     $('#mainNav').affix({
@@ -52,12 +33,7 @@
         }
     })
 
-    $(".carousel-cut > img").each(function(){
-      var w = $(this).width();
-      var h = $(this).height();
-      $(this).parent().width(w);
-      $(this).parent().height(h);
-    })
+
 
     // Floating label headings for the contact form
     $(function() {
@@ -70,26 +46,22 @@
         });
     });
 
-    $('#media').carousel({
-      pause: false,
-      interval: false,
-      dots: false,
-      arrows: false,
-      prevArrow: false,
-      nextArrow: false
-    });
+
 
 
     $(window).resize(function(){
+      /*
       if($(window).width() < 1200){
         $('.fb-left').css("padding-left","");
         $('.fb-right').css("padding-right","");
       }else{
         $('.fb-left').css("padding-left","70px");
         $('.fb-right').css("padding-right","70px");
-      }
+      }*/
     })
 
+
     delibe.render.start();
+
 
 })(jQuery); // End of use strict

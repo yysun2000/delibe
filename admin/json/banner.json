@@ -2,19 +2,19 @@
   {
     "key":1,
     "imageURL":"./admin/banner/1.png",
-    "linkURL":"./admin/banner/1.png",
+    "linkURL":"#",
     "Alt":""
   },
   {
     "key":2,
     "imageURL":"./admin/banner/1.png",
-    "linkURL":"./admin/banner/1.png",
+    "linkURL":"#",
     "Alt":""
   },
   {
     "key":3,
     "imageURL":"./admin/banner/1.png",
-    "linkURL":"./admin/banner/1.png",
+    "linkURL":"#",
     "Alt":""
   }
 ]

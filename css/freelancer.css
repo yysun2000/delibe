@@ -306,12 +306,6 @@ header img {
     font-size: 1.5em;
   }
 }
-.carousel-cut {
-  background-color: black;
-}
-.carousel-image {
-  opacity: 0.3;
-}
 .is-selected > img {
   background-color: black;
   opacity: 1 !important;

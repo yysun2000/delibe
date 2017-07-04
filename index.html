@@ -21,7 +21,6 @@
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css"/>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -36,8 +35,7 @@
 <div id="skipnav"><a href="#maincontent">Skip to main content</a></div>
     <!-- Navigation -->
     <div class="brand">DeliBe</div>
-    <div style="background-color:black;opacity" id="header">
-
+    <div style="background-color:black;opacity" id="topmenu">
     </div>
     <!-- Header -->
     <section id="banner" style="padding:0px;margin:0px;background-color:transparent">
@@ -116,7 +114,6 @@
     <script src="js/delibe.js"></script>
 
 
-
     <!--
       * @projectDescription Banner 슬라이드 페이지 템플릿
       *
@@ -128,12 +125,13 @@
 
     <script type="text/template" id="bannerTemplate">
       <% var blist = delibe.state.Banner.getList();%>
-      <div class="carousel"
-        data-flickity='{ "imagesLoaded": true, "percentPosition": false,"autoPlay":true }'>
-        <%for(var i=0; i<blist.length; i++) { %>
-          <div class="carousel-cut"><a href="<%=blist[i].linkURL%>"><img class="carousel-image" src="<%=blist[i].imageURL%>" alt="<%=blist[i].Alt%>" /></a></div>
-        <%} %>
+      <div id="banner"style="position:relative;height:540px;">
+        <div class="inner" style="position:absolute;top:0;left:0;height:540px;overflow:hidden;">
+          <%for(var i=0; i<blist.length; i++) { %><span class="clip" style="overflow: hidden;"><a href="<%=blist[i].linkURL%>"><img width="995" height="540" src="<%=blist[i].imageURL%>" alt="<%=blist[i].Alt%>" /></a></span><%} %>
+        </div>
       </div>
+      <div class="right">right</div>
+      <div class="left">left</div>
     </script>
 
 
@@ -486,7 +484,8 @@
         </div>
   </script>
 
-  <script  type="text/template" id="menu">
+  <script type="text/template" id="TopMenuTemplate">
+  <% var topmenulist = delibe.state.TopMenu.getList();%>
   <nav style="background-color:white;" class="navbar navbar-default" role="navigation">
       <div class="container">
           <!-- Brand and toggle get grouped for better mobile display -->
@@ -503,51 +502,17 @@
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse col-md-12" id="bs-example-navbar-collapse-1" style="width:100%;text-align:left;">
               <ul class="nav navbar-nav">
+                  <% for(var i=0;i<topmenulist.length;i++){%>
                   <li class="navbar-menu">
-                      <a href="#">SPECIAL</a>
+                      <a href="<%= topmenulist[i].link %>"><%= topmenulist[i].name %></a>
                   </li>
-
-                  <li class="navbar-menu">
-                      <a href="#">SELLER</a>
-                  </li>
-
-                  <li class="navbar-menu">
-                      <a href="#">ITEM</a>
-                  </li>
-
-                  <li class="navbar-menu" style="width:29%">
-                      <a href="#">COMMUNITY</a>
-                  </li>
+                  <% } %>
               </ul>
           </div>
           <!-- /.navbar-collapse -->
       </div>
       <!-- /.container -->
   </nav>
-
-  {
-    mainmenu:{
-      {
-        name:"SPECIAL",
-        link:"#"
-      },
-      {
-        name:"SELLER",
-        link:"#"
-      },
-      {
-        name:"ITEM",
-        link:"#"
-      },
-      {
-        name:"COMMUNITY",
-        link:"#"
-      }
-
-    },
-    submenu:{
-    }
-  }
   <div class="submenu" role="navigation">
       <div class="container">
           <!-- Brand and toggle get grouped for better mobile display -->
@@ -564,39 +529,13 @@
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse col-md-12" id="bs-example-navbar-collapse-1">
               <ul class="submenu-ul nav navbar-nav">
+                  <% for(var i=0;i<topmenulist.length;i++){%>
                   <li class="navbar-menu">
-                      <a href="index.html">BEST</a>
-                      <a href="index.html">NEW</a>
-                      <a href="index.html">SPECIAL</a>
+                    <% for(var j=0;j<topmenulist[i].submenu.length;j++){%>
+                        <a href="<%= topmenulist[i].submenu[j].link %>"><%= topmenulist[i].submenu[j].name %></a>
+                    <% } %>
                   </li>
-
-                  <li class="navbar-menu" >
-                      <a href="index.html">장수미</a>
-                      <a href="index.html">장수미</a>
-                      <a href="index.html">장수미</a>
-                  </li>
-
-                  <li class="navbar-menu" >
-                      <a href="index.html">TOP</a>
-                      <a href="index.html">BOTTOM</a>
-                      <a href="index.html">OUTER WEAR</a>
-                      <a href="index.html">DRESS</a>
-                      <a href="index.html">INNERWEAR</a>
-                      <a href="index.html">BAG/SHOES</a>
-                      <a href="index.html">ACC</a>
-                      <a href="index.html">ETC</a>
-                      <a href="index.html">ITEM</a>
-
-                  </li>
-
-                  <li class="navbar-menu">
-                    <a href="index.html">고객센터</a>
-                    <a href="index.html">공지사항</a>
-                    <a href="index.html">이벤트</a>
-                    <a href="index.html">실시간포토리뷰</a>
-                    <a href="index.html">출석체크</a>
-                    <a href="index.html">딜리버APP</a>
-                  </li>
+                  <% } %>
               </ul>
           </div>
           <!-- /.navbar-collapse -->
@@ -606,7 +545,6 @@
   </script>
 
     <script src="js/freelancer.min.js"></script>
-    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 
 </body>
 
