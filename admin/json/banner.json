@@ -14,7 +14,7 @@
   {
     "key":3,
     "imageURL":"./admin/banner/1.png",
-    "linkURL":"#",
+    "linkURL":"./admin/banner/1.png",
     "Alt":""
   }
 ]

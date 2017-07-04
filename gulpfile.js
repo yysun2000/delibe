@@ -29,7 +29,7 @@ gulp.task('less', function() {
             stream: true
         }))
 });
- 
+
 // Minify compiled CSS
 gulp.task('minify-css', ['less'], function() {
     return gulp.src('css/freelancer.css')
@@ -92,4 +92,5 @@ gulp.task('dev', ['browserSync', 'less', 'minify-css', 'minify-js'], function() 
     // Reloads the browser whenever HTML or JS files change
     gulp.watch('*.html', browserSync.reload);
     gulp.watch('js/**/*.js', browserSync.reload);
+    gulp.watch('admin/**/*.json', browserSync.reload);
 });

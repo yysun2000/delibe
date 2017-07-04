@@ -127,7 +127,7 @@
       <% var blist = delibe.state.Banner.getList();%>
       <div id="banner"style="position:relative;height:540px;">
         <div class="inner" style="position:absolute;top:0;left:0;height:540px;overflow:hidden;">
-          <%for(var i=0; i<blist.length; i++) { %><span class="clip" style="overflow: hidden;"><a href="<%=blist[i].linkURL%>"><img width="995" height="540" src="<%=blist[i].imageURL%>" alt="<%=blist[i].Alt%>" /></a></span><%} %>
+          <%for(var i=0; i<blist.length; i++) { %><div class="clip" style="overflow: hidden;display:inline-block"><a href="<%=blist[i].linkURL%>"><img width="995" height="540" src="<%=blist[i].imageURL%>" alt="<%=blist[i].Alt%>" /></a></div><%} %>
         </div>
       </div>
       <div class="right">right</div>

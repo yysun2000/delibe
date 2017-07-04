@@ -880,3 +880,12 @@ div#maincontent {
 .navbar-default .navbar-nav > li > a:focus {
   background-color: #fed664;
 }
+#banner .inner {
+  background-color: black;
+}
+#banner .enable {
+  opacity: 1;
+}
+#banner .disable {
+  opacity: 0.3;
+}

@@ -49,7 +49,9 @@ var delibe = (function(){
           var inner = $("#banner .inner");
           var left = $("#banner .left");
           var right = $("#banner .right");
-          var innerWidth = 995 * ($("#banner .clip").length);
+          var bannerLength = inner.children().length;
+          var innerWidth = 995 * bannerLength;
+          var idx = 0;
 
           var str = inner.html();
           str.replace('&nbsp;', '');
@@ -62,18 +64,26 @@ var delibe = (function(){
               inner.css({ "left": "50%","margin-left": -(955/2)});
           })
           right.click(function(){
-            if(inner.css("margin-left").replace("px","")*1 > (inner.width() - 477)){
+          //  if(inner.css("margin-left").replace("px","")*1 > -(innerWidth-955)){
+          if(inner.css("margin-left").replace("px","")*1 > -(innerWidth-955)){
               inner.animate({ "margin-left": "-=955px" }, "slow" );
+              idx++;
             }else{
-              inner.css({ "left": "50%","margin-left": -(955/2)});
+              inner.animate({ "left": "50%","margin-left": -(955/2)}, "slow");
+              idx = 0;
             }
+            console.log(idx);
           })
           left.click(function(){
-            if(inner.css("margin-left").replace("px","")*1 < -475){
+          //  if(inner.css("margin-left").replace("px","")*1 < -600){
+          if(inner.css("margin-left").replace("px","")*1 < -600){
               inner.animate({ "margin-left": "+=955px" }, "slow" );
+              idx--;
             }else{
-              inner.css({ "left": "50%","margin-left": -(955/2)});
+              inner.animate({ "left": "50%","margin-left": -(innerWidth-955+477)}, "slow");
+              idx = bannerLength -1;
             }
+            console.log(idx);
           })
         }
       },
